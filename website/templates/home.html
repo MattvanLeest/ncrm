@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<h1>Immo Concreet</h1>
+</br>
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Project</th>
+      <th scope="col">Opdrachtgever</th>
+      <th scope="col">Tonnage</th>
+      <th scope="col">Kans</th>
+      <th scope="col">Planning</th>
+      <th scope="col">Actiehouder</th>
+      <th scope="col">Actueel</th>
+    </tr>
+  </thead>
+  <tbody>    
+    {% if record %}
+      {% for records in record %}
+    <tr>
+      <td><a href="{% url 'record' records.id %}"> {{ records.project}}</a></td> 
+      <td> {{ records.opdrachtgever}}</td>
+      <td> {{ records.tonnage}}</td>
+      <td> {{ records.kans}}</td>
+      <td> {{ records.planning}}</td>
+      <td> {{ records.actiehouder}}</td>
+      <td> {{ records.actueel}}</td>
+    </tr>
+      {% endfor %}
+    {%  endif %}
+  </tbody>
+</table>
+
+
+
+
+{% else %}
+<div class="col-md-6 offset-md-3">
+<h1>Login</h1>
+</br>
+<form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+
+    <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" name="username" placeholder="Gebruikersnaam" required>
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" name="password" placeholder="Wachtwoord" required>
+        </div>
+    </br>
+        <button type="submit" class="btn btn-secondary">Log in</button>
+      </form>
+
+</form>
+</div>
+
+{% endif %}
+
+{% endblock %}

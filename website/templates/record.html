@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Project Gegevens:</h1>
+
+<div class="card">
+    <div class="card-header">
+        <h4><strong>{{ project_record.project}}</strong></h4>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><strong>Opdrachtgever: </strong>{{ project_record.opdrachtgever}}</p>
+        <p class="card-text"><strong>Tonnage: </strong>{{ project_record.tonnage}}</p>
+        <p class="card-text"><strong>Slagingskans: </strong>{{ project_record.kans}}</p>
+        <p class="card-text"><strong>Planning: </strong>{{ project_record.planning}}</p>
+        <p class="card-text"><strong>Actie houder: </strong>{{ project_record.actiehouder}}</p>
+        <p class="card-text"><strong>Nog actueel: </strong>{{ project_record.actueel}}</p>
+        <p class="card-text"><strong>Diversen: </strong>{{ project_record.actueel}}</p>
+      
+    </div>
+  </div>
+
+</br></br>
+<a href="{% url 'home' %}" class="btn btn-secondary">Terug</a>
+<a href="{% url 'update_project' project_record.id %}" class="btn btn-warning">Wijzigen</a>
+<a href="{% url 'delete_project' project_record.id %}" class="btn btn-danger">Wissen</a>
+ 
+
+{% endblock %}
