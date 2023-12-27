@@ -4,19 +4,60 @@
 
 <div class="card">
     <div class="card-header">
-        <h4><strong>{{ project_record.project}}</strong></h4>
-    </div>
-    <div class="card-body">
-        <p class="card-text"><strong>Opdrachtgever: </strong>{{ project_record.opdrachtgever}}</p>
-        <p class="card-text"><strong>Tonnage: </strong>{{ project_record.tonnage}}</p>
-        <p class="card-text"><strong>Slagingskans: </strong>{{ project_record.kans}}</p>
-        <p class="card-text"><strong>Planning: </strong>{{ project_record.planning}}</p>
-        <p class="card-text"><strong>Actie houder: </strong>{{ project_record.actiehouder}}</p>
-        <p class="card-text"><strong>Nog actueel: </strong>{{ project_record.actueel}}</p>
-        <p class="card-text"><strong>Diversen: </strong>{{ project_record.actueel}}</p>
-      
-    </div>
+        <h4><strong>{{ project_record.project }}</strong></h4>
+    
+    <table>
+        <tr>
+            <td><strong>Opdrachtgever: </strong></td>
+            <td class="table-light"><strong>{{ project_record.opdrachtgever }}</strong></td>
+        </tr>
+        <tr>
+            <td>Tonnage:</td>
+            <td>{{ project_record.tonnage }} ton</td>
+        </tr>
+        <tr>
+            <td>Slagingskans:</td>
+            <td>{{ project_record.slagingskans }} %</td>
+        </tr>
+        <tr>
+            <td>Planning:</td>
+            <td>{{ project_record.planning }}</td>
+        </tr>
+        <tr>
+            <td>Actie houder:</td>
+            <td>{{ project_record.actiehouder }}</td>
+        </tr>
+        <tr>
+            <td>Nog Actueel?</td>
+            <td>{{ project_record.thing }}</td>
+        </tr>
+        <tr>
+            <td>Bodemas Percentage:</td>
+            <td>{{ project_record.bodemas_perc }} %</td>
+        </tr>
+        <tr>
+            <td>Ton Bodemas:</td>
+            <td>{{ project_record.ton_bodemas }} ton</td>
+        </tr>
+        <tr>
+            <td>Grond Percentage:</td>
+            <td>{{ project_record.grond_perc }} %</td>
+        </tr>
+        <tr>
+            <td>Ton Grond:</td>
+            <td>{{ project_record.ton_grond }} ton</td>
+        </tr>
+        <tr>
+            <td valign="top">Status:</td>
+            <td>{{ project_record.status }} ton</td>
+        </tr>
+        <tr>
+            <td valign="top">Actie:</td>
+            <td>{{ project_record.actie }} ton</td>
+        </tr>
+    </table>
   </div>
+</div>
 
 </br></br>
 <a href="{% url 'home' %}" class="btn btn-secondary">Terug</a>

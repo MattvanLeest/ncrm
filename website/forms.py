@@ -39,7 +39,7 @@ class AddProjectForm(forms.ModelForm):
 	opdrachtgever = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Opdrachtgever", "class":"form-control"}), label="")
 	tonnage = forms.IntegerField(required=True, widget=forms.widgets.NumberInput(attrs={"placeholder":"Tonnage", "class":"form-control"}), label="")
 	bodemas_perc = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Bodemas Percentage", "class":"form-control"}), label="")
-	status =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Status", "class":"form-control"}), label="")
+	status =  forms.CharField(required=True, widget=forms.widgets.Textarea(attrs={"placeholder":"Status", "class":"form-control"}), label="")
 	kans =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Kans", "class":"form-control"}), label="")
 	planning =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Planning", "class":"form-control"}), label="")
 	actiehouder =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Actiehouder", "class":"form-control"}), label="")
