@@ -20,7 +20,7 @@ def home(request):
         else:
             messages.success(request, "Er is een fout onstaan bij het aanmelden, probeer opnieuw...")
             return redirect('home')
-    else:     
+    else:
         return render(request, 'home.html', {'record': record})
 
 def login_user(request):
@@ -41,7 +41,7 @@ def register_user(request):
 			password = form.cleaned_data['password1']
 			user = authenticate(username=username, password=password)
 			login(request, user)
-			messages.success(request, "You Have Successfully Registered! Welcome!")
+			messages.success(request, "Je bent succesvol gereigistreed! Welkome!")
 			return redirect('home')
 	else:
 		form = SignUpForm()
@@ -55,7 +55,7 @@ def project_record(request, pk):
 		project_record = Records.objects.get(id=pk)
 		return render(request, 'record.html', {'project_record':project_record})
 	else:
-		messages.success(request, "You Must Be Logged In To View That Page...")
+		messages.success(request, "Je moet aangemeld zijn om deze pagina te zien...")
 		return redirect('home')
 
 def delete_project(request, pk):

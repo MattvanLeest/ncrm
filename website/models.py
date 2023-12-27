@@ -1,4 +1,5 @@
 from django.db import models
+import math
 
 class Records(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -7,7 +8,7 @@ class Records(models.Model):
     opdrachtgever = models.CharField(max_length = 100)
     tonnage = models.IntegerField()
     bodemas_perc = models.IntegerField()
-    status = models.CharField(max_length = 1000)
+    status = models.CharField(max_length = 1500)
     slagingskans = models.IntegerField()
     planning = models.CharField(max_length = 20)
     actiehouder = models.CharField(max_length = 2)
@@ -29,17 +30,18 @@ class Records(models.Model):
         return 100 - self.bodemas_perc
 
     @property
-    def nu_actueel(self):
-        if self.actueel == True:
-            thing = "Ja"
-        else:
-            thing = "Nee"
-        return thing
-    
+    def productieweken(self):
+        getal =(float(self.tonnage/2500/5))
+        return math.ceil(getal)
 
+    @property
+    def opmaaktonnage(self):
+        return format(self.tonnage, "6,d").replace(",", ".")
 
-    
-    
+    @property
+    def opmaakbodemas(self):
+        return format(self.ton_bodemas, "6,d").replace(",", ".")
 
-     
-
+    @property
+    def opmaakgrond(self):
+        return format(self.ton_grond, "6,d").replace(",", ".")

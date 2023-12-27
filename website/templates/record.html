@@ -2,18 +2,44 @@
 {% block content %}
 <h1>Project Gegevens:</h1>
 
+
+
+
 <div class="card">
     <div class="card-header">
         <h4><strong>{{ project_record.project }}</strong></h4>
-    
+
     <table>
         <tr>
-            <td><strong>Opdrachtgever: </strong></td>
+            <td width=20%><strong>Opdrachtgever: </strong></td>
             <td class="table-light"><strong>{{ project_record.opdrachtgever }}</strong></td>
         </tr>
         <tr>
+          <td>Actueel:</td>
+          <td>{% if project_record.actueel == True %}
+            <div class="form-check">
+              <input class="form-check-input"
+              type="checkbox" checked="checked"
+              value={{project_record.id}}
+              named="boxes">
+            </div>
+            {% else %}
+            <div class="form-check">
+              <input class="form-check-input"
+              type="checkbox"
+              value={{project_record.id}}
+              named="boxes">
+            </div>
+            {% endif %}
+          </td>
+        </tr>
+        <tr>
             <td>Tonnage:</td>
-            <td>{{ project_record.tonnage }} ton</td>
+            <td>{{ project_record.opmaaktonnage}} ton</td>
+        </tr>
+        <tr>
+            <td>productieweken:</td>
+            <td>{{ project_record.productieweken }} week(en)</td>
         </tr>
         <tr>
             <td>Slagingskans:</td>
@@ -28,16 +54,12 @@
             <td>{{ project_record.actiehouder }}</td>
         </tr>
         <tr>
-            <td>Nog Actueel?</td>
-            <td>{{ project_record.thing }}</td>
-        </tr>
-        <tr>
             <td>Bodemas Percentage:</td>
             <td>{{ project_record.bodemas_perc }} %</td>
         </tr>
         <tr>
             <td>Ton Bodemas:</td>
-            <td>{{ project_record.ton_bodemas }} ton</td>
+            <td>{{ project_record.opmaakbodemas }} ton</td>
         </tr>
         <tr>
             <td>Grond Percentage:</td>
@@ -45,7 +67,7 @@
         </tr>
         <tr>
             <td>Ton Grond:</td>
-            <td>{{ project_record.ton_grond }} ton</td>
+            <td>{{ project_record.opmaakgrond }} ton</td>
         </tr>
         <tr>
             <td valign="top">Status:</td>
@@ -63,6 +85,6 @@
 <a href="{% url 'home' %}" class="btn btn-secondary">Terug</a>
 <a href="{% url 'update_project' project_record.id %}" class="btn btn-warning">Wijzigen</a>
 <a href="{% url 'delete_project' project_record.id %}" class="btn btn-danger">Wissen</a>
- 
+
 
 {% endblock %}

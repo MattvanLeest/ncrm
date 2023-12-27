@@ -30,20 +30,21 @@ class SignUpForm(UserCreationForm):
 		self.fields['password2'].widget.attrs['class'] = 'form-control'
 		self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
 		self.fields['password2'].label = ''
-		self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'	
+		self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
 
 # Creer project toevoegen form
 class AddProjectForm(forms.ModelForm):
 	actueel = forms.BooleanField(required=False)
-	project = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Project", "class":"form-control"}), label="")
-	opdrachtgever = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Opdrachtgever", "class":"form-control"}), label="")
-	tonnage = forms.IntegerField(required=True, widget=forms.widgets.NumberInput(attrs={"placeholder":"Tonnage", "class":"form-control"}), label="")
-	bodemas_perc = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Bodemas Percentage", "class":"form-control"}), label="")
-	status =  forms.CharField(required=True, widget=forms.widgets.Textarea(attrs={"placeholder":"Status", "class":"form-control"}), label="")
-	kans =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Kans", "class":"form-control"}), label="")
-	planning =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Planning", "class":"form-control"}), label="")
-	actiehouder =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Actiehouder", "class":"form-control"}), label="")
-	
+	project = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Project", "class":"form-control"}), label="Project")
+	opdrachtgever = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Opdrachtgever", "class":"form-control"}), label="Opdrachtgever")
+	tonnage = forms.IntegerField(required=True, widget=forms.widgets.NumberInput(attrs={"placeholder":"Tonnage", "class":"form-control"}), label="Totale hoeveelheid")
+	bodemas_perc = forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Bodemas Percentage", "class":"form-control"}), label="Bodemas percentage")
+	status =  forms.CharField(required=True, widget=forms.widgets.Textarea(attrs={"placeholder":"Status", "class":"form-control"}), label="Status")
+	slagingskans = forms.IntegerField(required=True, widget=forms.widgets.NumberInput(attrs={"placeholder":"Slagingskans", "class":"form-control"}), label="Slagingskans")
+	actie =  forms.CharField(required=True, widget=forms.widgets.Textarea(attrs={"placeholder":"Actie", "class":"form-control"}), label="Actie")
+	planning =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Planning", "class":"form-control"}), label="Planning")
+	actiehouder =  forms.CharField(required=True, widget=forms.widgets.TextInput(attrs={"placeholder":"Actiehouder", "class":"form-control"}), label="Actiehouder")
+
 	class Meta:
 		model = Records
 		exclude = ("user",)
